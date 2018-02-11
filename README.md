@@ -8,6 +8,8 @@ Setup Environment Variables:
 
 Please replace the values with the proper ones for your environment.
 
+export RDBCACHE_SERVER=localhost
+
 export RDBCACHE_PORT=8181
 
 export REDIS_SERVER=localhost
@@ -23,11 +25,11 @@ export DB_USER_PASS=rdbcache
 Run Tests
 ---------
 
-To run the whole test:
+To run the whole test suite:
 
 ./rdbcache_test
-_
-A test result has been saved in file rdbcache-test-result.txt.
+
+A previous test result has been saved in file rdbcache-test-result.txt.
 
 You also can run individual as followings:
 
