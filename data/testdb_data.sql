@@ -1,4 +1,4 @@
-delete from rdbcache_kv_pair where type in ('data', 'info', 'query');
+delete from rdbcache_kv_pair;
 
 delete from tb1;
 

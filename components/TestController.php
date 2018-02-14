@@ -1,23 +1,8 @@
 <?php
-/*
- * Copyright (c) 2017-2018, Sam Wen <sam underscore wen at yahoo dot com>
- * All rights reserved.
- *
- * Redistribution and use in source and binary forms, with or without
- * modification, are permitted provided that the following conditions are met:
- *
- *   * Redistributions of source code must retain the above copyright notice,
- *     this list of conditions and the following disclaimer.
- *   * Redistributions in binary form must reproduce the above copyright
- *     notice, this list of conditions and the following disclaimer in the
- *     documentation and/or other materials provided with the distribution.
- *   * Neither the name of rdbcache nor the names of its contributors may be used
- *     to endorse or promote products derived from this software without
- *     specific prior written permission.
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+/**
+ * @link http://rdbcache.com/
+ * @copyright Copyright (c) 2017-2018 Sam Wen
+ * @license http://rdbcache.com/license/
  */
 
 namespace app\components;
@@ -51,10 +36,18 @@ class TestController extends Controller
         $this->stdout($this->current_route . "\n", Console::BOLD);
         
         $dbase_conn = Yii::$app->db;
-        $sql = file_get_contents(Yii::getAlias('@app') . '/data/testdb_data.sql');
-        $command = $dbase_conn->createCommand($sql);
-        $result = $command->execute();
-
+        for ($i = 0; $i < 3; $i++) {
+            try {
+                $sql = file_get_contents(Yii::getAlias('@app') . '/data/testdb_data.sql');
+                $command = $dbase_conn->createCommand($sql);
+                $result = $command->execute();
+                break;
+            } catch (\yii\db\Exception $e) {
+                // Serialization failure: 1213 Deadlock is expected
+                echo 'Caught exception during setup data, which is expected, sleep 3 seconds and retry';
+                sleep(3);
+            }
+        }
         $redis_conn = Yii::$app->redis;
         $redis_conn->executeCommand('FLUSHALL');
 
@@ -66,24 +59,42 @@ class TestController extends Controller
     }
 
     protected function empdb_init($withDept2Data = false, $withEmp2Data = false) {
-        
+
         $dbase_conn = Yii::$app->db;
         $sql = file_get_contents(Yii::getAlias('@app') . '/data/emp_data.sql');
-        $command = $dbase_conn->createCommand($sql);
-        $result = $command->execute();
-        $sql = file_get_contents(Yii::getAlias('@app') . '/data/emp2_data0.sql');
-        $command = $dbase_conn->createCommand($sql);
-        $result = $command->execute();
-        if ($withDept2Data && $withEmp2Data) {
-            $sql = file_get_contents(Yii::getAlias('@app') . '/data/emp2_data2.sql');
-            $command = $dbase_conn->createCommand($sql);
-            $result = $command->execute();
-        } else if ($withDept2Data) {
-            $sql = file_get_contents(Yii::getAlias('@app') . '/data/emp2_data1.sql');
-            $command = $dbase_conn->createCommand($sql);
-            $result = $command->execute();
+        for ($i = 0; $i < 3; $i++) {
+            try {
+                $command = $dbase_conn->createCommand($sql);
+                $result = $command->execute();
+                break;
+            } catch (\yii\db\Exception $e) {
+                // Serialization failure: 1213 Deadlock is expected
+                echo 'Caught exception during setup data, which is expected, sleep 3 seconds and retry';
+                sleep(3);
+            }
         }
-        
+        $sql = file_get_contents(Yii::getAlias('@app') . '/data/emp2_data0.sql');
+        for ($i = 0; $i < 3; $i++) {
+            try {
+                $command = $dbase_conn->createCommand($sql);
+                $result = $command->execute();
+                if ($withDept2Data && $withEmp2Data) {
+                    $sql = file_get_contents(Yii::getAlias('@app') . '/data/emp2_data2.sql');
+                    $command = $dbase_conn->createCommand($sql);
+                    $result = $command->execute();
+                    break;
+                } else if ($withDept2Data) {
+                    $sql = file_get_contents(Yii::getAlias('@app') . '/data/emp2_data1.sql');
+                    $command = $dbase_conn->createCommand($sql);
+                    $result = $command->execute();
+                    break;
+                }
+            } catch (\yii\db\Exception $e) {
+                // Serialization failure: 1213 Deadlock is expected
+                echo 'Caught exception during setup data, which is expected, sleep 3 seconds and retry';
+                sleep(3);
+            }
+        }
     }
 
     protected function getTestStartAtId() {
@@ -469,7 +480,7 @@ class TestController extends Controller
     
     protected function NotTestable($message) {
         echo "\nNot testable: $message\n";
-        $http_client->addClientMessage("Not testable: $message");
+        $this->http_client->addClientMessage("Not testable: $message");
     }
 
     private function isAssoc(array $arr)
