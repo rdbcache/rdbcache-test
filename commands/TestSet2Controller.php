@@ -263,7 +263,7 @@ class TestSet2Controller extends TestController
 
         // check redis
         //
-        $data = $this->waitForRedisHashUpdate($key, $table, 'data');
+        $data = $this->waitForRedisHashUpdate($key, $table, 'data', 'id');
 
         if (empty($data)) {
             $this->failed(basename(__FILE__)."@".__LINE__.": Failed, redis data not found");
@@ -383,7 +383,7 @@ class TestSet2Controller extends TestController
 
         // check redis
         //
-        $data = $this->waitForRedisHashUpdate($key, $table, 'data');
+        $data = $this->waitForRedisHashUpdate($key, $table, 'data', 'id');
 
         if (empty($data)) {
             $this->failed(basename(__FILE__)."@".__LINE__.": Failed, redis data not found");

@@ -164,12 +164,18 @@ class TestController extends Controller
         }
     }
 
-    protected function waitForRedisHashUpdate($key, $table, $expected, $wait = 40) {
+    protected function waitForRedisHashUpdate($key, $table, $expected, $field = null, $wait = 40) {
         $data = null;
         for ($i = 0; $i < $wait; $i++) {
             $data = $this->redisCmd('HGETALL rdchdata::'.$key);
             if ($expected == 'data' && $data != null) {
-                return $data;
+                if ($field != null) {
+                    if (!empty($data[$field])) {
+                        return $data;
+                    }
+                } else {
+                    return $data;
+                }
             }
             if ($data == $expected) {
                 return $data;
