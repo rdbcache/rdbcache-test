@@ -28,6 +28,8 @@ class TestMinusExpireController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $expire = "-3";
         $table = 'tb1';
 

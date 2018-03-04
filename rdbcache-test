@@ -4,66 +4,34 @@ start_id=$(./yii test-start)
 
 ./yii test-get
 
-sleep 1
-
 ./yii test-get2
-
-sleep 1
 
 ./yii test-set
 
-sleep 1
-
 ./yii test-set2
-
-sleep 1
 
 ./yii test-put
 
-sleep 1
-
 ./yii test-getset
-
-sleep 1
 
 ./yii test-minus-expire
 
-sleep 1
-
 ./yii test-pull
-
-sleep 1
 
 ./yii test-push
 
-sleep 1
-
 ./yii test-delkey
-
-sleep 1
 
 ./yii test-delall
 
-sleep 1
-
 ./yii test-employees
-
-sleep 1
 
 ./yii test-select
 
-sleep 1
-
 ./yii test-select-pull
-
-sleep 1
 
 ./yii test-insert
 
-sleep 1
-
 ./yii test-insert-pull
-
-sleep 1
 
 ./yii test-end $start_id

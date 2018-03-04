@@ -30,6 +30,8 @@ class TestPushController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $keys = ['id1', 'id2', 'id3'];
         $expected_arrays = [];
         
@@ -94,6 +96,8 @@ class TestPushController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $values_array = [
             ['key' => 'push_aaa', 'name' => 'new_name001', 'age' => 11],
             ['key' => 'push_bbb', 'name' => 'new_name002', 'age' => 12 ],
@@ -152,6 +156,8 @@ class TestPushController extends TestController
     public function actionMix() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $keys = ['id2', 'id3'];
 

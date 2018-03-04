@@ -31,10 +31,10 @@ class TestController extends Controller
     protected function setup($name) {
 
         echo "\n*************** ";
-        
+
         $this->current_route = $this->id . '/' . Inflector::camel2id(substr($name, 6));
         $this->stdout($this->current_route . "\n", Console::BOLD);
-        
+
         $dbase_conn = Yii::$app->db;
         for ($i = 0; $i < 3; $i++) {
             try {
@@ -48,6 +48,7 @@ class TestController extends Controller
                 sleep(3);
             }
         }
+
         $redis_conn = Yii::$app->redis;
         $redis_conn->executeCommand('FLUSHALL');
 
@@ -94,6 +95,22 @@ class TestController extends Controller
                 echo 'Caught exception during setup data, which is expected, sleep 3 seconds and retry';
                 sleep(3);
             }
+        }
+    }
+
+    protected function flushLocalCache() {
+
+        $api = '/v1/flush-cache';
+
+        $response = $this->createRequest()
+            ->setMethod('get')
+            ->setApi($api)
+            ->send();
+
+        if (!$response->isOk) {
+            $this->failed(basename(__FILE__)."@".__LINE__.": Failed!  " . $response->data['message']);
+        } else {
+            $this->HttpOK($response);
         }
     }
 

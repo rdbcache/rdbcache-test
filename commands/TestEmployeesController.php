@@ -36,6 +36,8 @@ class TestEmployeesController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $this->empdb_init();
 
         $table = 'departments';
@@ -122,6 +124,8 @@ class TestEmployeesController extends TestController
     public function actionEmployees() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $this->empdb_init();
 
@@ -210,6 +214,8 @@ class TestEmployeesController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $this->empdb_init();
 
         $table = 'salaries';
@@ -296,6 +302,8 @@ class TestEmployeesController extends TestController
     public function actionTitles() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $this->empdb_init();
 
@@ -384,6 +392,8 @@ class TestEmployeesController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $this->empdb_init();
 
         $table = 'dept_emp';
@@ -470,6 +480,8 @@ class TestEmployeesController extends TestController
     public function actionDeptManager() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $this->empdb_init();
 

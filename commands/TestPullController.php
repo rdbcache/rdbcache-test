@@ -30,6 +30,8 @@ class TestPullController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $keys = ['id1', 'id2', 'id3'];
         $expected_arrays = [];
         $table = null;
@@ -90,6 +92,8 @@ class TestPullController extends TestController
     public function actionWithTable() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $ids = [1, 2, 3];
         $keys = [];
@@ -165,6 +169,8 @@ class TestPullController extends TestController
     public function actionMix() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $keys = ['id1', 'id2'];
         $expected_arrays = [];

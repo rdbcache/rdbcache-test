@@ -30,6 +30,8 @@ class TestDelallController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         // get value from database
         //
         $key = 'id1';
@@ -135,6 +137,8 @@ class TestDelallController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         // get expected from database
         //
         $expected_array = $this->dbFind(1, 'tb1');
@@ -239,6 +243,8 @@ class TestDelallController extends TestController
     public function actionWithPost() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         // get expected from database
         //

@@ -28,6 +28,8 @@ class TestInsertController extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $table = 'tb1';
 
         $values_array = [
@@ -78,6 +80,8 @@ class TestInsertController extends TestController
     public function actionWithTableAndGeneratedId() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $table = 'tb1';
 

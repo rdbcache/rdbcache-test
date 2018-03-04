@@ -36,6 +36,8 @@ class TestGet2Controller extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         // get value from database
         //
         $key = 'id1';
@@ -110,11 +112,13 @@ class TestGet2Controller extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         $expire = 3;
         
         // get value from database
         //
-        $key = 'id2';
+        $key = 'id3';
         $table = null;
 
         $expected_value = $this->dbFind(['id' => $key, 'type' => 'data']);
@@ -209,6 +213,8 @@ class TestGet2Controller extends TestController
 
         $this->setup(__FUNCTION__);
 
+        $this->flushLocalCache();
+
         // get expected from database
         //
         $expected_array = $this->dbFind(1, 'tb1');
@@ -282,6 +288,8 @@ class TestGet2Controller extends TestController
     public function actionWithTableAndExpire() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $table = 'tb1';
         $expire = 3;
@@ -381,6 +389,8 @@ class TestGet2Controller extends TestController
     public function actionWithTableAndGeneratedIdAndExpire() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $table = 'tb2';
 
@@ -484,6 +494,8 @@ class TestGet2Controller extends TestController
     public function actionWithTableAndPlusExpire() {
 
         $this->setup(__FUNCTION__);
+
+        $this->flushLocalCache();
 
         $table = 'tb1';
         // get expected from database
