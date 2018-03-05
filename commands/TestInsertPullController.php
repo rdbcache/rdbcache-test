@@ -36,8 +36,6 @@ class TestInsertPullController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $this->empdb_init(false, false);
         
         $table = 'departments';
@@ -143,8 +141,6 @@ class TestInsertPullController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $this->empdb_init(true, false);
 
         $table = 'employees';
@@ -248,8 +244,6 @@ class TestInsertPullController extends TestController
     public function actionSalaries() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $this->empdb_init(true, true);
 
@@ -355,8 +349,6 @@ class TestInsertPullController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $this->empdb_init(true, true);
 
         $table = 'titles';
@@ -461,8 +453,6 @@ class TestInsertPullController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $this->empdb_init(true, true);
 
         $table = 'dept_manager';
@@ -566,8 +556,6 @@ class TestInsertPullController extends TestController
     public function actionDeptEmp() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $this->empdb_init(true, true);
 

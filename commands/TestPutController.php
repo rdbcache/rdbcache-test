@@ -34,8 +34,6 @@ class TestPutController extends TestController
     {
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $key = 'id1';
         $value = 'value3';
         $expected_value = 'value3';
@@ -124,8 +122,6 @@ class TestPutController extends TestController
     {
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $key = 'id4';
         $value = ["f3" => "v333", "f4" => 123];
         $expected_array = ["f1"=>"v41","f2"=>"v42","f3"=>"v333","f4"=>123];
@@ -211,8 +207,6 @@ class TestPutController extends TestController
     public function actionSimpleWithJsonValueAndExpire()
     {
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $expire = 3;
         $key = 'id4';
@@ -313,8 +307,6 @@ class TestPutController extends TestController
     public function actionWithTable() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $key = 'my-hash-key-put1';
         $expected_array = ["id"=>1,"name"=>"name11","age"=>10];
@@ -428,8 +420,6 @@ class TestPutController extends TestController
     public function actionWithTableAndExpire() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $expire = 3;
         $key = 'my-hash-key-put2';

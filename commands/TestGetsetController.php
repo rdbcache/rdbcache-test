@@ -32,8 +32,6 @@ class TestGetsetController extends TestController
     {
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $key = 'id1';
         $table = null;
         
@@ -133,8 +131,6 @@ class TestGetsetController extends TestController
     public function actionSimpleWithExpire()
     {
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $expire = 3;
         $key = 'id2';
@@ -250,8 +246,6 @@ class TestGetsetController extends TestController
         
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $table = 'tb1';
 
         // get expected array from database
@@ -364,8 +358,6 @@ class TestGetsetController extends TestController
     public function actionWithTableAndExpire() {
         
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $table = 'tb1';
 

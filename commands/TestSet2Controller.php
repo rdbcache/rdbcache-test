@@ -33,8 +33,6 @@ class TestSet2Controller extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $expire = 3;
         $key = 'my-key-expire';
         $value = 'my-value-expire';
@@ -133,8 +131,6 @@ class TestSet2Controller extends TestController
     public function actionSimpleWithGeneratedIdAndExpire() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $expire = 3;
         $key = '*';
@@ -237,8 +233,6 @@ class TestSet2Controller extends TestController
     {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $expire = 3;
         $key = 'my-key-expire-123';
@@ -361,8 +355,6 @@ class TestSet2Controller extends TestController
     {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $expire = 3;
         $key = '*';

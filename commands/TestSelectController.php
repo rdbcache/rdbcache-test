@@ -34,8 +34,6 @@ class TestSelectController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
          //select
         $api = '/v1/select?key=id1&key=id2&key=id3';
         $response = $this->createRequest(true)
@@ -86,7 +84,6 @@ class TestSelectController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
         $table = 'tb1';
 
          //select
@@ -129,8 +126,6 @@ class TestSelectController extends TestController
     public function actionWithTable1() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $table = 'tb1';
 
@@ -175,8 +170,6 @@ class TestSelectController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $table = 'tb1';
 
          //select
@@ -219,8 +212,6 @@ class TestSelectController extends TestController
     public function actionWithTable3() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $table = 'tb1';
         $keys = ["aaa", "bbb", "ccc"];

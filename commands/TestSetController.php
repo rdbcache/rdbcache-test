@@ -35,8 +35,6 @@ class TestSetController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $key = 'my-key';
         $value = 'my-value';
         $expected_value = $value;
@@ -120,8 +118,6 @@ class TestSetController extends TestController
     public function actionSimpleWithJsonValue() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $key = 'my-json-key';
         $value = ['name'=> 'mike','age'=> 25, 'title'=>'engineer'];
@@ -209,8 +205,6 @@ class TestSetController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $key = '*';
         $value = 'my-value';
         $expected_value = $value;
@@ -297,8 +291,6 @@ class TestSetController extends TestController
     {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $key = 'my-key123';
         $value = ["name" => "mike", "age" => "20"];
@@ -407,8 +399,6 @@ class TestSetController extends TestController
     {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $key = '*';
         $value = ["name" => "mike", "age" => "20"];

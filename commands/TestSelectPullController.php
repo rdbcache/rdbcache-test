@@ -35,9 +35,7 @@ class TestSelectPullController extends TestController
     public function actionDepartments() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
-
+ 
         $this->empdb_init();
 
         $table = 'departments';
@@ -129,8 +127,6 @@ class TestSelectPullController extends TestController
     public function actionEmployees() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $this->empdb_init();
 
@@ -224,8 +220,6 @@ class TestSelectPullController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $this->empdb_init();
 
         $table = 'salaries';
@@ -317,8 +311,6 @@ class TestSelectPullController extends TestController
     public function actionTitles() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $this->empdb_init();
 
@@ -412,8 +404,6 @@ class TestSelectPullController extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $this->flushLocalCache();
-
         $this->empdb_init();
 
         $table = 'dept_manager';
@@ -505,8 +495,6 @@ class TestSelectPullController extends TestController
     public function actionDeptEmp() {
 
         $this->setup(__FUNCTION__);
-
-        $this->flushLocalCache();
 
         $this->empdb_init();
 

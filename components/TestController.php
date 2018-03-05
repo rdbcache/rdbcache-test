@@ -35,6 +35,23 @@ class TestController extends Controller
         $this->current_route = $this->id . '/' . Inflector::camel2id(substr($name, 6));
         $this->stdout($this->current_route . "\n", Console::BOLD);
 
+        $this->db_init();
+        
+        $redis_conn = Yii::$app->redis;
+        $redis_conn->executeCommand('FLUSHALL');
+
+        $this->main_test_id = null;
+
+        $this->http_client = new TestClient();
+
+        $this->trace_ids = [];
+
+        $this->flushLocalCache();
+
+    }
+
+    protected function db_init() {
+
         $dbase_conn = Yii::$app->db;
         for ($i = 0; $i < 3; $i++) {
             try {
@@ -48,15 +65,6 @@ class TestController extends Controller
                 sleep(3);
             }
         }
-
-        $redis_conn = Yii::$app->redis;
-        $redis_conn->executeCommand('FLUSHALL');
-
-        $this->main_test_id = null;
-
-        $this->http_client = new TestClient();
-
-        $this->trace_ids = [];
     }
 
     protected function empdb_init($withDept2Data = false, $withEmp2Data = false) {
