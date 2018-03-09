@@ -404,8 +404,9 @@ class TestSetController extends TestController
         $value = ["name" => "mike", "age" => "20"];
         $expected_array = $value;
         $table = 'tb1';
+        $expire = "6";
 
-        $api = '/v1/set/'.$key.'/'.$table;
+        $api = '/v1/set/'.$key.'/'.$table.'/'.$expire;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -423,6 +424,8 @@ class TestSetController extends TestController
         $this->HttpOK($response);
 
         $key = $resp_key;
+
+        echo "sleep 3 seconds\n"; sleep(3);
 
         // check redis
         //

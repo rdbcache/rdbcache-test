@@ -356,11 +356,11 @@ class TestSet2Controller extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $expire = 3;
         $key = '*';
         $value = ["name" => "mike", "age" => "20"];
         $expected_array = $value;
         $table = 'tb1';
+        $expire = 6;
 
         $api = '/v1/set/'.$key.'/'.$table.'/'.$expire;
         $response = $this->createRequest(true)
@@ -380,6 +380,8 @@ class TestSet2Controller extends TestController
         $this->HttpOK($response);
 
         $key = $resp_key;
+
+        echo "sleep 4 seconds\n"; sleep(4);
 
         // check redis
         //

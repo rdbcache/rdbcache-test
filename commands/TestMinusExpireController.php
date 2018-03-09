@@ -116,7 +116,7 @@ class TestMinusExpireController extends TestController
         
             $expected_array = $record->attributes;
         
-            echo "\nsleep 4 seconds\n"; sleep(4); 
+            echo "\nsleep 4 seconds for waitForRedisHashUpdate\n"; sleep(4); 
 
             // check redis
             //
