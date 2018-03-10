@@ -407,7 +407,7 @@ class TestSetController extends TestController
         $value = ["name" => "mike", "age" => "20"];
         $expected_array = $value;
         $table = 'tb1';
-        $expire = "8";
+        $expire = "12";
 
         $api = '/v1/set/'.$key.'/'.$table.'/'.$expire;
         $response = $this->createRequest(true)
@@ -428,7 +428,7 @@ class TestSetController extends TestController
 
         $key = $resp_key;
 
-        echo "sleep 7 seconds\n"; sleep(7);
+        echo "sleep 10 seconds\n"; sleep(10);
 
         // check redis
         //
