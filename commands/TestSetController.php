@@ -296,8 +296,9 @@ class TestSetController extends TestController
         $value = ["name" => "mike", "age" => "20"];
         $expected_array = $value;
         $table = 'tb1';
-
-        $api = '/v1/set/'.$key.'/'.$table;
+        $expire = "6";
+        
+        $api = '/v1/set/'.$key.'/'.$table.'/'.$expire;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -318,6 +319,8 @@ class TestSetController extends TestController
 
         $this->HttpOK($response);
 
+        echo "wait for 3 seconds\n"; sleep(3);
+        
         // check redis
         //
         $data = $this->waitForRedisHashUpdate($key, $table, 'data', 'id');
@@ -404,7 +407,7 @@ class TestSetController extends TestController
         $value = ["name" => "mike", "age" => "20"];
         $expected_array = $value;
         $table = 'tb1';
-        $expire = "6";
+        $expire = "8";
 
         $api = '/v1/set/'.$key.'/'.$table.'/'.$expire;
         $response = $this->createRequest(true)
@@ -425,7 +428,7 @@ class TestSetController extends TestController
 
         $key = $resp_key;
 
-        echo "sleep 3 seconds\n"; sleep(3);
+        echo "sleep 7 seconds\n"; sleep(7);
 
         // check redis
         //

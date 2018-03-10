@@ -234,7 +234,7 @@ class TestSet2Controller extends TestController
 
         $this->setup(__FUNCTION__);
 
-        $expire = 3;
+        $expire = 5;
         $key = 'my-key-expire-123';
         $value = ["name" => "mike", "age" => "20"];
         $expected_array = $value;
@@ -260,6 +260,8 @@ class TestSet2Controller extends TestController
         }
 
         $this->HttpOK($response);
+
+        echo "wait for 3 seconds\n"; sleep(3);
 
         // check redis
         //
@@ -335,7 +337,7 @@ class TestSet2Controller extends TestController
         $this->DatabaseOK();
 
         // wait for exipration
-        echo "\nsleep $expire seconds\n"; sleep($expire);
+        echo "\nsleep 3 seconds\n"; sleep(3);
 
         // check redis
         //
@@ -360,7 +362,7 @@ class TestSet2Controller extends TestController
         $value = ["name" => "mike", "age" => "20"];
         $expected_array = $value;
         $table = 'tb1';
-        $expire = 6;
+        $expire = 8;
 
         $api = '/v1/set/'.$key.'/'.$table.'/'.$expire;
         $response = $this->createRequest(true)
@@ -381,7 +383,7 @@ class TestSet2Controller extends TestController
 
         $key = $resp_key;
 
-        echo "sleep 4 seconds\n"; sleep(4);
+        echo "sleep 7 seconds\n"; sleep(7);
 
         // check redis
         //
@@ -457,7 +459,7 @@ class TestSet2Controller extends TestController
         $this->DatabaseOK();
 
         // wait for expiration
-        echo "\nsleep $expire seconds\n"; sleep($expire);
+        echo "\nsleep 1 seconds\n"; sleep(1);
 
         // check redis
         //
