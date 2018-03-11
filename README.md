@@ -3,6 +3,22 @@ rdbcache Tests
 
 rdbcache test suite is built on top of PHP Yii2 framework. It requires php 5.4.0+ and Yii2 framework.
 
+For linux, here are steps:
+
+yum -y install php71-fpm
+
+yum -y install php71-intl php71-gd php71-imap php71-mbstring php71-opcache php71-pdo php71-pecl-apcu php71-mysqlnd php71-pgsql php71-pecl-imagick php71-pecl-memcache php71-pecl-redis
+
+curl -sS https://getcomposer.org/installer | php
+
+mv composer.phar /usr/local/bin/composer
+
+git clone https://github.com/rdbcache/rdbcache-test.git
+
+cd rdbcache-test
+
+composer update
+
 Setup Environment Variables:
 ----------------------------
 
