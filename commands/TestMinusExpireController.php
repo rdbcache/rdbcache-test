@@ -158,7 +158,7 @@ class TestMinusExpireController extends TestController
         }
 
         // stop updating
-        $api = '/v1/get/'.$key.'/0/tb1?id=1';
+        $api = '/v1/get/'.$key.'/0';
         
         $response = $this->createRequest()
             ->setMethod('get')
