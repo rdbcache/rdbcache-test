@@ -10,7 +10,7 @@ namespace app\commands;
 use Yii;
 use app\components\TestController;
 
-class TestInsertController extends TestController
+class TestSaveController extends TestController
 {
     public function actionIndex() {
 
@@ -38,7 +38,7 @@ class TestInsertController extends TestController
         ];
         
          //insert
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -65,7 +65,7 @@ class TestInsertController extends TestController
             $value = $this->dbFind($condition, $table);
 
             if ($value == null) {
-                $this->failed(basename(__FILE__)."@".__LINE__.": Failed to find record  - " . $keys[$i]);
+                $this->failed(basename(__FILE__)."@".__LINE__.": Failed to find record  - " . json_encode($condition));
                 return;
             }
         }
@@ -88,7 +88,7 @@ class TestInsertController extends TestController
         ];
         
          //insert
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -113,7 +113,7 @@ class TestInsertController extends TestController
             $value = $this->dbFind($values_array[$i], $table);
 
             if ($value == null) {
-                $this->failed(basename(__FILE__)."@".__LINE__.": Failed to find record  - $key");
+                $this->failed(basename(__FILE__)."@".__LINE__.": Failed to find record  - " . json_encode($values_array[$i]));
                 return;
             }
         }

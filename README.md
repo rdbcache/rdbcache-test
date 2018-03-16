@@ -77,7 +77,7 @@ You also can run individual as followings:
 
 ./yii test-select-pull
 
-./yii test-insert
+./yii test-save
 
-./yii test-insert-pull
+./yii test-save-pull
 

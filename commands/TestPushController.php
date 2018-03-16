@@ -102,7 +102,7 @@ class TestPushController extends TestController
         $table = 'tb1';
 
          //insert
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

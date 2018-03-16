@@ -10,7 +10,7 @@ namespace app\commands;
 use Yii;
 use app\components\TestController;
 
-class TestInsertPullController extends TestController
+class TestSavePullController extends TestController
 {
     public function actionIndex() {
 
@@ -51,12 +51,12 @@ class TestInsertPullController extends TestController
         }
 
         $size = count($input_array);
-        
+
         $this->DatabaseOK();
 
         $table .= '2';
 
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -123,7 +123,7 @@ class TestInsertPullController extends TestController
         $this->HttpOK($response);
 
         // wait for database insert operations
-        sleep(1);
+        echo "\nwait for 1 second\n"; sleep(1);
 
         $data = $this->dbWaitFindAll($table, $size);
 
@@ -161,7 +161,7 @@ class TestInsertPullController extends TestController
 
         $table .= '2';
 
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -265,7 +265,7 @@ class TestInsertPullController extends TestController
 
         $table .= '2';
 
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -369,7 +369,7 @@ class TestInsertPullController extends TestController
 
         $table .= '2';
 
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -473,7 +473,7 @@ class TestInsertPullController extends TestController
 
         $table .= '2';
 
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -577,7 +577,7 @@ class TestInsertPullController extends TestController
 
         $table .= '2';
 
-        $api = '/v1/insert/'.$table;
+        $api = '/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
