@@ -108,7 +108,7 @@ class TestController extends Controller
 
     protected function flushLocalCache() {
 
-        $api = '/v1/flush-cache';
+        $api = '/rdbcache/v1/flush-cache';
 
         $response = $this->createRequest()
             ->setMethod('get')
@@ -469,7 +469,7 @@ class TestController extends Controller
         
         // check for trace by trace_ids
         //
-        $api = '/v1/trace/';
+        $api = '/rdbcache/v1/trace/';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

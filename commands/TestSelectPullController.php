@@ -52,7 +52,7 @@ class TestSelectPullController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/select/'.$table.'?limit='.$limit;
+        $api = '/rdbcache/v1/select/'.$table.'?limit='.$limit;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -100,7 +100,7 @@ class TestSelectPullController extends TestController
 
         // get by keys only
         //
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -144,7 +144,7 @@ class TestSelectPullController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/select/'.$table.'?limit='.$limit;
+        $api = '/rdbcache/v1/select/'.$table.'?limit='.$limit;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -192,7 +192,7 @@ class TestSelectPullController extends TestController
 
         // get by keys only
         //
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -236,7 +236,7 @@ class TestSelectPullController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/select/'.$table.'?limit='.$limit;
+        $api = '/rdbcache/v1/select/'.$table.'?limit='.$limit;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -284,7 +284,7 @@ class TestSelectPullController extends TestController
 
         // get by keys only
         //
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -328,7 +328,7 @@ class TestSelectPullController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/select/'.$table.'?limit='.$limit;
+        $api = '/rdbcache/v1/select/'.$table.'?limit='.$limit;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -376,7 +376,7 @@ class TestSelectPullController extends TestController
 
         // get by keys only
         //
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -420,7 +420,7 @@ class TestSelectPullController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/select/'.$table.'?limit='.$limit;
+        $api = '/rdbcache/v1/select/'.$table.'?limit='.$limit;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -468,7 +468,7 @@ class TestSelectPullController extends TestController
 
         // get by keys only
         //
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -512,7 +512,7 @@ class TestSelectPullController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/select/'.$table.'?limit='.$limit;
+        $api = '/rdbcache/v1/select/'.$table.'?limit='.$limit;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -560,7 +560,7 @@ class TestSelectPullController extends TestController
 
         // get by keys only
         //
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

@@ -38,7 +38,7 @@ class TestPullController extends TestController
         //
         foreach ($keys as $key) {
 
-            $api = '/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -62,7 +62,7 @@ class TestPullController extends TestController
         echo "expected: ".json_encode($expected_arrays)."\n";
 
         //pull
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -122,7 +122,7 @@ class TestPullController extends TestController
 
             $key = 'my-hash-key-'.$id;
             
-            $api = '/v1/get/'.$key.'/'.$table.'?id='.$id;
+            $api = '/rdbcache/v1/get/'.$key.'/'.$table.'?id='.$id;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -137,7 +137,7 @@ class TestPullController extends TestController
         }
 
         //pull
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -173,7 +173,7 @@ class TestPullController extends TestController
         //
         foreach ($keys as $key) {
 
-            $api = '/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -204,7 +204,7 @@ class TestPullController extends TestController
             $key = 'my-hash-key-'.$id;
             array_push($keys, $key);
 
-            $api = '/v1/get/'.$key.'/'.$table.'?id='.$id;
+            $api = '/rdbcache/v1/get/'.$key.'/'.$table.'?id='.$id;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -221,7 +221,7 @@ class TestPullController extends TestController
         }
 
         //pull
-        $api = '/v1/pull/';
+        $api = '/rdbcache/v1/pull/';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

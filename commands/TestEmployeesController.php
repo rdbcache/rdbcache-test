@@ -57,7 +57,7 @@ class TestEmployeesController extends TestController
             $query .= urlencode($key) . '=' . urlencode($value);
         }
 
-        $api = '/v1/get/*/'.$table.'?'.$query;
+        $api = '/rdbcache/v1/get/*/'.$table.'?'.$query;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -90,7 +90,7 @@ class TestEmployeesController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -143,7 +143,7 @@ class TestEmployeesController extends TestController
             $query .= urlencode($key) . '=' . urlencode($value);
         }
 
-        $api = '/v1/get/*/'.$table.'?'.$query;
+        $api = '/rdbcache/v1/get/*/'.$table.'?'.$query;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -176,7 +176,7 @@ class TestEmployeesController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -229,7 +229,7 @@ class TestEmployeesController extends TestController
             $query .= urlencode($key) . '=' . urlencode($value);
         }
 
-        $api = '/v1/get/*/'.$table.'?'.$query;
+        $api = '/rdbcache/v1/get/*/'.$table.'?'.$query;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -262,7 +262,7 @@ class TestEmployeesController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -315,7 +315,7 @@ class TestEmployeesController extends TestController
             $query .= urlencode($key) . '=' . urlencode($value);
         }
 
-        $api = '/v1/get/*/'.$table.'?'.$query;
+        $api = '/rdbcache/v1/get/*/'.$table.'?'.$query;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -348,7 +348,7 @@ class TestEmployeesController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -401,7 +401,7 @@ class TestEmployeesController extends TestController
             $query .= urlencode($key) . '=' . urlencode($value);
         }
 
-        $api = '/v1/get/*/'.$table.'?'.$query;
+        $api = '/rdbcache/v1/get/*/'.$table.'?'.$query;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -434,7 +434,7 @@ class TestEmployeesController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -487,7 +487,7 @@ class TestEmployeesController extends TestController
             $query .= urlencode($key) . '=' . urlencode($value);
         }
 
-        $api = '/v1/get/*/'.$table.'?'.$query;
+        $api = '/rdbcache/v1/get/*/'.$table.'?'.$query;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -520,7 +520,7 @@ class TestEmployeesController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)

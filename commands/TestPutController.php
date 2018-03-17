@@ -39,7 +39,7 @@ class TestPutController extends TestController
         $expected_value = 'value3';
         $table = null;
 
-        $api = '/v1/put/'.$key;
+        $api = '/rdbcache/v1/put/'.$key;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('put')
@@ -73,7 +73,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -127,7 +127,7 @@ class TestPutController extends TestController
         $expected_array = ["f1"=>"v41","f2"=>"v42","f3"=>"v333","f4"=>123];
         $table = null;
 
-        $api = '/v1/put/'.$key;
+        $api = '/rdbcache/v1/put/'.$key;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('put')
@@ -161,7 +161,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -214,7 +214,7 @@ class TestPutController extends TestController
         $expected_array = ["f1"=>"v41","f2"=>"v42","f3"=>"v333","f4"=>123];
         $table = null;
 
-        $api = '/v1/put/'.$key.'/'.$expire;
+        $api = '/rdbcache/v1/put/'.$key.'/'.$expire;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('put')
@@ -248,7 +248,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -312,7 +312,7 @@ class TestPutController extends TestController
         $expected_array = ["id"=>1,"name"=>"name11","age"=>10];
         $table = 'tb1';
 
-        $api = '/v1/get/'.$key.'/'.$table.'/?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/?id=1';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -340,7 +340,7 @@ class TestPutController extends TestController
         $value = ["age"=>29];
         $expected_array = ["id"=>1,"name"=>"name11","age"=>29];
 
-        $api = '/v1/put/'.$key;
+        $api = '/rdbcache/v1/put/'.$key;
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -374,7 +374,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -426,7 +426,7 @@ class TestPutController extends TestController
         $expected_array = ["id"=>1,"name"=>"name11","age"=>10];
         $table = 'tb1';
 
-        $api = '/v1/get/'.$key.'/'.$table.'/'.$expire.'/?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/'.$expire.'/?id=1';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -454,7 +454,7 @@ class TestPutController extends TestController
         $value = ["age"=>29];
         $expected_array = ["id"=>1,"name"=>"name11","age"=>29];
 
-        $api = '/v1/put/'.$key;
+        $api = '/rdbcache/v1/put/'.$key;
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -488,7 +488,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)

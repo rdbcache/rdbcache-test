@@ -45,7 +45,7 @@ class TestGetsetController extends TestController
         $this->DatabaseOK();
 
         $value = 'value2';
-        $api = '/v1/getset/'.$key.'/'.$value;
+        $api = '/rdbcache/v1/getset/'.$key.'/'.$value;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -85,7 +85,7 @@ class TestGetsetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -146,7 +146,7 @@ class TestGetsetController extends TestController
         $this->DatabaseOK();
 
         $value = 'value2';
-        $api = '/v1/getset/'.$key.'/'.$value.'/'.$expire;
+        $api = '/rdbcache/v1/getset/'.$key.'/'.$value.'/'.$expire;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -186,7 +186,7 @@ class TestGetsetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -265,7 +265,7 @@ class TestGetsetController extends TestController
         $value = ["id"=>1,"name"=>"mike","age"=>29];
         //$value = ["name"=>"mike","age"=>29];
 
-        $api = '/v1/getset/'.$key.'/'.$table.'?id=1';
+        $api = '/rdbcache/v1/getset/'.$key.'/'.$table.'?id=1';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -307,7 +307,7 @@ class TestGetsetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -379,7 +379,7 @@ class TestGetsetController extends TestController
         $value = ["id"=>1,"name"=>"mike","age"=>29];
         //$value = ["name"=>"mike","age"=>29];
 
-        $api = '/v1/getset/'.$key.'/'.$table.'/'.$expire.'?id=1';
+        $api = '/rdbcache/v1/getset/'.$key.'/'.$table.'/'.$expire.'?id=1';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -421,7 +421,7 @@ class TestGetsetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)

@@ -38,7 +38,7 @@ class TestSaveController extends TestController
         ];
         
          //insert
-        $api = '/v1/save/'.$table;
+        $api = '/rdbcache/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -88,7 +88,7 @@ class TestSaveController extends TestController
         ];
         
          //insert
-        $api = '/v1/save/'.$table;
+        $api = '/rdbcache/v1/save/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

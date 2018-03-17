@@ -49,7 +49,7 @@ class TestGet2Controller extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -77,7 +77,7 @@ class TestGet2Controller extends TestController
         //
         for ($i = 0; $i < 100; $i++) {
             
-            $api = '/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -126,7 +126,7 @@ class TestGet2Controller extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/get/'.$key.'/'.$expire;
+        $api = '/rdbcache/v1/get/'.$key.'/'.$expire;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -163,7 +163,7 @@ class TestGet2Controller extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -221,7 +221,7 @@ class TestGet2Controller extends TestController
         $this->DatabaseOK();
 
         $key = 'my-hash-key-table';
-        $api = '/v1/get/'.$key.'/tb1?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/tb1?id=1';
         
         $response = $this->createRequest(true)
             ->setMethod('get')
@@ -250,7 +250,7 @@ class TestGet2Controller extends TestController
         //
         for ($i = 0; $i < 100; $i++) {
             
-            $api = '/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -298,7 +298,7 @@ class TestGet2Controller extends TestController
         $this->DatabaseOK();
 
         $key = 'my-hash-key-table-expire';
-        $api = '/v1/get/'.$key.'/'.$expire.'/'.$table.'?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$expire.'/'.$table.'?id=1';
         
         $response = $this->createRequest(true)
             ->setMethod('get')
@@ -336,7 +336,7 @@ class TestGet2Controller extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -397,7 +397,7 @@ class TestGet2Controller extends TestController
 
         $expire = 3;
         $key = '*';
-        $api = '/v1/get/'.$key.'/'.$table.'/'.$expire.'?name=name22';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/'.$expire.'?name=name22';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -438,7 +438,7 @@ class TestGet2Controller extends TestController
         
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -498,7 +498,7 @@ class TestGet2Controller extends TestController
         $this->DatabaseOK();
 
         $key = 'my-hash-key-plus-expire';
-        $api = '/v1/get/'.$key.'/'.$table.'/3?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/3?id=1';
         
         $response = $this->createRequest(true)
             ->setMethod('get')
@@ -539,7 +539,7 @@ class TestGet2Controller extends TestController
 
         // get by key with expire=+3
         //
-        $api = '/v1/get/'.$key.'/+5';
+        $api = '/rdbcache/v1/get/'.$key.'/+5';
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)

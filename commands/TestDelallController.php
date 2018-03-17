@@ -43,7 +43,7 @@ class TestDelallController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -81,7 +81,7 @@ class TestDelallController extends TestController
 
         // delkey
         //
-        $api = '/v1/delall/'.$key;
+        $api = '/rdbcache/v1/delall/'.$key;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -147,7 +147,7 @@ class TestDelallController extends TestController
         $this->DatabaseOK();
 
         $key = 'my-hash-key-delall';
-        $api = '/v1/get/'.$key.'/tb1?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/tb1?id=1';
         
         $response = $this->createRequest()
             ->setMethod('get')
@@ -186,7 +186,7 @@ class TestDelallController extends TestController
 
         // delkey
         //
-        $api = '/v1/delall/'.$key;
+        $api = '/rdbcache/v1/delall/'.$key;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -251,7 +251,7 @@ class TestDelallController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/select/tb1?id=1&id=2&id=3';
+        $api = '/rdbcache/v1/select/tb1?id=1&id=2&id=3';
         
         $response = $this->createRequest()
             ->setMethod('get')
@@ -289,7 +289,7 @@ class TestDelallController extends TestController
 
         // delkey
         //
-        $api = '/v1/delall';
+        $api = '/rdbcache/v1/delall';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

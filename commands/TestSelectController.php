@@ -35,7 +35,7 @@ class TestSelectController extends TestController
         $this->setup(__FUNCTION__);
 
          //select
-        $api = '/v1/select?key=id1&key=id2&key=id3';
+        $api = '/rdbcache/v1/select?key=id1&key=id2&key=id3';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -87,7 +87,7 @@ class TestSelectController extends TestController
         $table = 'tb1';
 
          //select
-        $api = '/v1/select/'.$table.'?'.urlencode('id>=3');
+        $api = '/rdbcache/v1/select/'.$table.'?'.urlencode('id>=3');
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -130,7 +130,7 @@ class TestSelectController extends TestController
         $table = 'tb1';
 
          //select
-        $api = '/v1/select/'.$table.'?id_GE_3';
+        $api = '/rdbcache/v1/select/'.$table.'?id_GE_3';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -173,7 +173,7 @@ class TestSelectController extends TestController
         $table = 'tb1';
 
          //select
-        $api = '/v1/select/'.$table.'?id_LT_3';
+        $api = '/rdbcache/v1/select/'.$table.'?id_LT_3';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -217,7 +217,7 @@ class TestSelectController extends TestController
         $keys = ["aaa", "bbb", "ccc"];
         
          //select
-        $api = '/v1/select/'.$table.'?id_GT_0';
+        $api = '/rdbcache/v1/select/'.$table.'?id_GT_0';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

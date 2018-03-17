@@ -40,7 +40,7 @@ class TestSetController extends TestController
         $expected_value = $value;
         $table = null;
 
-        $api = '/v1/set/'.$key.'/'.$value;
+        $api = '/rdbcache/v1/set/'.$key.'/'.$value;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -72,7 +72,7 @@ class TestSetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -124,7 +124,7 @@ class TestSetController extends TestController
         $expected_value = $value;
         $table = null;
 
-        $api = '/v1/set/'.$key;
+        $api = '/rdbcache/v1/set/'.$key;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -158,7 +158,7 @@ class TestSetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -210,7 +210,7 @@ class TestSetController extends TestController
         $expected_value = $value;
         $table = null;
 
-        $api = '/v1/set/'.$key.'/'.$value;
+        $api = '/rdbcache/v1/set/'.$key.'/'.$value;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -244,7 +244,7 @@ class TestSetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -298,7 +298,7 @@ class TestSetController extends TestController
         $table = 'tb1';
         $expire = "6";
         
-        $api = '/v1/set/'.$key.'/'.$table.'/'.$expire;
+        $api = '/rdbcache/v1/set/'.$key.'/'.$table.'/'.$expire;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -344,7 +344,7 @@ class TestSetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -409,7 +409,7 @@ class TestSetController extends TestController
         $table = 'tb1';
         $expire = "3";
 
-        $api = '/v1/set/'.$key.'/'.$table.'/'.$expire;
+        $api = '/rdbcache/v1/set/'.$key.'/'.$table.'/'.$expire;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -452,7 +452,7 @@ class TestSetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)

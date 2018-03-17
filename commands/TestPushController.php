@@ -37,7 +37,7 @@ class TestPushController extends TestController
         //
         foreach ($keys as $key) {
 
-            $api = '/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -65,7 +65,7 @@ class TestPushController extends TestController
         ];
 
         //push
-        $api = '/v1/push/';
+        $api = '/rdbcache/v1/push/';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -102,7 +102,7 @@ class TestPushController extends TestController
         $table = 'tb1';
 
          //insert
-        $api = '/v1/save/'.$table;
+        $api = '/rdbcache/v1/save/'.$table;
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -124,7 +124,7 @@ class TestPushController extends TestController
         ];
         
          //push
-        $api = '/v1/push/'.$table;
+        $api = '/rdbcache/v1/push/'.$table;
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -159,7 +159,7 @@ class TestPushController extends TestController
         //
         foreach ($keys as $key) {
 
-            $api = '/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -189,7 +189,7 @@ class TestPushController extends TestController
             $key = 'my-hash-key-push-'.$id;
             array_push($keys, $key);
 
-            $api = '/v1/get/'.$key.'/'.$table.'?id='.$id;
+            $api = '/rdbcache/v1/get/'.$key.'/'.$table.'?id='.$id;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -211,7 +211,7 @@ class TestPushController extends TestController
         ];
 
         //push
-        $api = '/v1/push/';
+        $api = '/rdbcache/v1/push/';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

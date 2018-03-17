@@ -43,7 +43,7 @@ class TestMinusExpireController extends TestController
         $this->DatabaseOK();
 
         $key = 'my-hash-key-minus-expire';
-        $api = '/v1/get/'.$key.'/'.$expire.'/'.$table.'?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$expire.'/'.$table.'?id=1';
         
         $response = $this->createRequest(true)
             ->setMethod('get')
@@ -81,7 +81,7 @@ class TestMinusExpireController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -131,7 +131,7 @@ class TestMinusExpireController extends TestController
 
             // get by key only
             //
-            $api = '/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -158,7 +158,7 @@ class TestMinusExpireController extends TestController
         }
 
         // stop updating
-        $api = '/v1/get/'.$key.'/0';
+        $api = '/rdbcache/v1/get/'.$key.'/0';
         
         $response = $this->createRequest()
             ->setMethod('get')

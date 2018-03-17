@@ -45,7 +45,7 @@ class TestGetController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -83,7 +83,7 @@ class TestGetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -128,7 +128,7 @@ class TestGetController extends TestController
 
         $this->DatabaseOK();
 
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -166,7 +166,7 @@ class TestGetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -210,7 +210,7 @@ class TestGetController extends TestController
         $this->DatabaseOK();
 
         $key = 'my-hash-key-get';
-        $api = '/v1/get/'.$key.'/tb1?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/tb1?id=1';
         
         $response = $this->createRequest(true)
             ->setMethod('get')
@@ -249,7 +249,7 @@ class TestGetController extends TestController
 
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -293,7 +293,7 @@ class TestGetController extends TestController
         $this->DatabaseOK();
 
         $key = '*';
-        $api = '/v1/get/'.$key.'/tb2/?name=name22';
+        $api = '/rdbcache/v1/get/'.$key.'/tb2/?name=name22';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -334,7 +334,7 @@ class TestGetController extends TestController
         
         // get by key only
         //
-        $api = '/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
