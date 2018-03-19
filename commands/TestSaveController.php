@@ -31,10 +31,9 @@ class TestSaveController extends TestController
         $table = 'tb1';
 
         $values_array = [
-            ['key' => 'insert_aaa', 'name' => 'new_name001', 'age' => 11],
-            ['key' => 'insert_bbb', 'name' => 'new_name002', 'age' => 12 ],
-            ['key' => 'insert_ccc', 'name' => 'new_name003', 'age' => 13 ],
-            ['key' => '*', 'name' => 'new_name004', 'age' => 14 ],
+            ['name' => 'new_name001', 'age' => 11],
+            ['name' => 'new_name002', 'age' => 12],
+            ['name' => 'new_name003', 'age' => 13],
         ];
         
          //insert
@@ -61,7 +60,6 @@ class TestSaveController extends TestController
         for ($i = 0; $i < count($values_array); $i++) {
 
             $condition = $values_array[$i];
-            unset($condition['key']);
             $value = $this->dbFind($condition, $table);
 
             if ($value == null) {
