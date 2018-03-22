@@ -95,9 +95,9 @@ class TestPushController extends TestController
         $this->setup(__FUNCTION__);
 
         $values_array = [
-            ['key' => 'push_aaa', 'name' => 'new_name001', 'age' => 11],
-            ['key' => 'push_bbb', 'name' => 'new_name002', 'age' => 12 ],
-            ['key' => 'push_ccc', 'name' => 'new_name003', 'age' => 13 ],
+            ['name' => 'new_name001', 'age' => 11],
+            ['name' => 'new_name002', 'age' => 12 ],
+            ['name' => 'new_name003', 'age' => 13 ],
         ];
         $table = 'tb1';
 
