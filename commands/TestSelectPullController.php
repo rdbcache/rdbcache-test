@@ -98,6 +98,8 @@ class TestSelectPullController extends TestController
 
         $this-> RedisOK();
 
+        sleep(1);
+        
         // get by keys only
         //
         $api = '/rdbcache/v1/pull/';

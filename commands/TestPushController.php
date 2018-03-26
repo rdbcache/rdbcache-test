@@ -115,12 +115,14 @@ class TestPushController extends TestController
             return;
         }
 
+        $data = $response->data['data'];
+        
         $this->HttpOK($response);
 
         $values_array = [
-            'push_aaa' => ['name' => 'new_name011', 'age' => 21],
-            'push_bbb' => ['name' => 'new_name012', 'age' => 22 ],
-            'push_ccc' => ['name' => 'new_name013', 'age' => 23 ],
+            $data[0] => ['name' => 'new_name011', 'age' => 21],
+            $data[1] => ['name' => 'new_name012', 'age' => 22 ],
+            $data[2] => ['name' => 'new_name013', 'age' => 23 ],
         ];
         
          //push
@@ -204,10 +206,10 @@ class TestPushController extends TestController
         }
 
         $values_array = [
-            'id1' => ['name' => 'new_name011', 'age' => 21],
-            'id2' => ['name' => 'new_name012', 'age' => 22 ],
-            'my-hash-key-2' => ['name' => 'new_name2222', 'age' => 22 ],
-            'my-hash-key-3' => ['name' => 'new_name3333', 'age' => 33 ],
+            'id2' => ['name' => 'new_name012', 'age' => 22],
+            'id3' => ['name' => 'new_name013', 'age' => 23 ],
+            'my-hash-key-push-2' => ['name' => 'new_name2222', 'age' => 22 ],
+            'my-hash-key-push-3' => ['name' => 'new_name3333', 'age' => 33 ],
         ];
 
         //push
