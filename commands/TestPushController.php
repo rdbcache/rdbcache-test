@@ -101,7 +101,7 @@ class TestPushController extends TestController
         ];
         $table = 'tb1';
 
-         //insert
+         //save
         $api = '/rdbcache/v1/save/'.$table;
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
@@ -124,10 +124,12 @@ class TestPushController extends TestController
             $data[1] => ['name' => 'new_name012', 'age' => 22 ],
             $data[2] => ['name' => 'new_name013', 'age' => 23 ],
         ];
+
+        echo "\nsleep 3 seconds\n"; sleep(3);
         
          //push
         $api = '/rdbcache/v1/push/'.$table;
-        $response = $this->createRequest()
+        $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
             ->setApi($api)

@@ -492,7 +492,7 @@ class TestController extends Controller
 
         foreach($this->trace_ids as $trace_id) {
             if (!array_key_exists($trace_id, $data) || $data[$trace_id] != []) {
-                $this->failed($fileline.": Failed! error message foubd by trace id");
+                $this->failed($fileline.": Failed! error message found by trace id");
                 return;
             }
         }
