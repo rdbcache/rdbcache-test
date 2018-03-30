@@ -675,7 +675,7 @@ class TestSetController extends TestController
         $table = 'tb1';
         $expire = "6";
         
-        $api = '/rdbcache/v1/set/'.$key.'/'.$table.'/'.$expire.'-sync';
+        $api = '/rdbcache/v1/set/'.$key.'/'.$table.'/'.$expire.'/sync';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -892,7 +892,7 @@ class TestSetController extends TestController
         $table = 'tb1';
         $expire = "3";
 
-        $api = '/rdbcache/v1/set/'.$key.'/'.$table.'/'.$expire.'-sync';
+        $api = '/rdbcache/v1/set/'.$key.'/'.$table.'/'.$expire.'/sync';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

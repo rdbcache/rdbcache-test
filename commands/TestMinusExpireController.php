@@ -196,7 +196,7 @@ class TestMinusExpireController extends TestController
         $this->DatabaseOK();
 
         $key = 'my-hash-key-minus-expire';
-        $api = '/rdbcache/v1/get/'.$key.'/'.$expire.'/'.$table.'-sync?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$expire.'/'.$table.'/sync?id=1';
         
         $response = $this->createRequest(true)
             ->setMethod('get')

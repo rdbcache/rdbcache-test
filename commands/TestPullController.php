@@ -264,7 +264,7 @@ class TestPullController extends TestController
 
             $key = 'my-hash-key-'.$id;
             
-            $api = '/rdbcache/v1/get/'.$key.'/'.$table.'-sync?id='.$id;
+            $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/sync?id='.$id;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)

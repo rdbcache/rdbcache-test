@@ -950,7 +950,7 @@ class TestPutController extends TestController
         $expected_array = ["id"=>1,"name"=>"name11","age"=>10];
         $table = 'tb1';
 
-        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/'.$expire.'-sync/?id=1';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/'.$expire.'/sync/?id=1';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)

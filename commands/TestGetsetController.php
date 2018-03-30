@@ -368,7 +368,7 @@ class TestGetsetController extends TestController
         $this->DatabaseOK();
 
         $value = 'value2';
-        $api = '/rdbcache/v1/getset/'.$key.'/'.$value.'/'.$expire.'-sync';
+        $api = '/rdbcache/v1/getset/'.$key.'/'.$value.'/'.$expire.'/sync';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -842,7 +842,7 @@ class TestGetsetController extends TestController
         $value = ["id"=>1,"name"=>"mike","age"=>29];
         //$value = ["name"=>"mike","age"=>29];
 
-        $api = '/rdbcache/v1/getset/'.$key.'/'.$table.'/'.$expire.'-sync?id=1';
+        $api = '/rdbcache/v1/getset/'.$key.'/'.$table.'/'.$expire.'/sync?id=1';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
