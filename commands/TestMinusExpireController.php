@@ -83,7 +83,7 @@ class TestMinusExpireController extends TestController
 
         // get by key only
         //
-        $api = '/rdbcache/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -133,7 +133,7 @@ class TestMinusExpireController extends TestController
 
             // get by key only
             //
-            $api = '/rdbcache/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key.'/'.$table;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -160,7 +160,7 @@ class TestMinusExpireController extends TestController
         }
 
         // stop updating
-        $api = '/rdbcache/v1/get/'.$key.'/0';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/0';
         
         $response = $this->createRequest()
             ->setMethod('get')
@@ -234,7 +234,7 @@ class TestMinusExpireController extends TestController
 
         // get by key only
         //
-        $api = '/rdbcache/v1/get/'.$key.'/sync';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/sync';
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -284,7 +284,7 @@ class TestMinusExpireController extends TestController
 
             // get by key only
             //
-            $api = '/rdbcache/v1/get/'.$key;
+            $api = '/rdbcache/v1/get/'.$key.'/'.$table;
             $response = $this->createRequest()
                 ->setMethod('get')
                 ->setApi($api)
@@ -311,7 +311,7 @@ class TestMinusExpireController extends TestController
         }
 
         // stop updating
-        $api = '/rdbcache/v1/get/'.$key.'/0/sync';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/0/sync';
         
         $response = $this->createRequest()
             ->setMethod('get')

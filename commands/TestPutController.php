@@ -624,7 +624,7 @@ class TestPutController extends TestController
         $value = ["age"=>29];
         $expected_array = ["id"=>1,"name"=>"name11","age"=>29];
 
-        $api = '/rdbcache/v1/put/'.$key;
+        $api = '/rdbcache/v1/put/'.$key.'/'.$table;
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -658,7 +658,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/rdbcache/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -737,7 +737,7 @@ class TestPutController extends TestController
         $value = ["age"=>29];
         $expected_array = ["id"=>1,"name"=>"name11","age"=>29];
 
-        $api = '/rdbcache/v1/put/'.$key.'/sync';
+        $api = '/rdbcache/v1/put/'.$key.'/'.$table.'/sync';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -771,7 +771,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/rdbcache/v1/get/'.$key.'/sync';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/sync';
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -851,7 +851,7 @@ class TestPutController extends TestController
         $value = ["age"=>29];
         $expected_array = ["id"=>1,"name"=>"name11","age"=>29];
 
-        $api = '/rdbcache/v1/put/'.$key;
+        $api = '/rdbcache/v1/put/'.$key.'/'.$table;
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -885,7 +885,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/rdbcache/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -978,7 +978,7 @@ class TestPutController extends TestController
         $value = ["age"=>29];
         $expected_array = ["id"=>1,"name"=>"name11","age"=>29];
 
-        $api = '/rdbcache/v1/put/'.$key.'/sync';
+        $api = '/rdbcache/v1/put/'.$key.'/'.$table.'/sync';
         $response = $this->createRequest()
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -1012,7 +1012,7 @@ class TestPutController extends TestController
 
         // get by key only
         //
-        $api = '/rdbcache/v1/get/'.$key.'/sync';
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/sync';
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)

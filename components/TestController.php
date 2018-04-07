@@ -191,8 +191,12 @@ class TestController extends Controller
 
     protected function waitForRedisHashUpdate($key, $table, $expected, $field = null, $wait = 40) {
         $data = null;
+        $type = "data";
+        if ($table != null) {
+            $type = $table;
+        }
         for ($i = 0; $i < $wait; $i++) {
-            $data = $this->redisCmd('HGETALL rdchdata::'.$key);
+            $data = $this->redisCmd('HGETALL rdchdata::'.$type.':'.$key);
             if ($expected == 'data' && $data != null) {
                 if ($field != null) {
                     if (!empty($data[$field])) {

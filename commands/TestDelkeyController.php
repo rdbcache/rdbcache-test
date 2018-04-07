@@ -297,7 +297,7 @@ class TestDelkeyController extends TestController
 
         // delkey
         //
-        $api = '/rdbcache/v1/delkey/'.$key;
+        $api = '/rdbcache/v1/delkey/'.$key.'/tb1';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -402,7 +402,7 @@ class TestDelkeyController extends TestController
 
         // delkey
         //
-        $api = '/rdbcache/v1/delkey/'.$key.'/sync';
+        $api = '/rdbcache/v1/delkey/'.$key.'/tb1/sync';
         $response = $this->createRequest(true)
             ->setMethod('get')
             ->setApi($api)
@@ -505,7 +505,7 @@ class TestDelkeyController extends TestController
 
         // delkey
         //
-        $api = '/rdbcache/v1/delkey';
+        $api = '/rdbcache/v1/delkey/tb1';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -608,7 +608,7 @@ class TestDelkeyController extends TestController
 
         // delkey
         //
-        $api = '/rdbcache/v1/delkey/sync';
+        $api = '/rdbcache/v1/delkey/tb1/sync';
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')

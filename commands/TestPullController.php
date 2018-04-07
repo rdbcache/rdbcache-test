@@ -23,11 +23,6 @@ class TestPullController extends TestController
         $this->actionWithTable();
 
         $this->actionWithTableAndSync();
-
-        $this->actionMix();
-
-        $this->actionMixWithSync();
-        
         $stop_id = $this->getTestStopAtId();
         $this->summary($start_id, $stop_id);
     }
@@ -204,7 +199,7 @@ class TestPullController extends TestController
         }
 
         //pull
-        $api = '/rdbcache/v1/pull/';
+        $api = '/rdbcache/v1/pull/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -279,7 +274,7 @@ class TestPullController extends TestController
         }
 
         //pull
-        $api = '/rdbcache/v1/pull/sync';
+        $api = '/rdbcache/v1/pull/sync/'.$table;
         $response = $this->createRequest(true)
             ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
             ->setMethod('post')
@@ -293,182 +288,6 @@ class TestPullController extends TestController
         }
 
         $data = $response->data['data'];
-
-        if ($data != $expected_arrays) {
-            $this->failed(basename(__FILE__)."@".__LINE__.": incorrect data");
-            return;
-        }
-
-        $this->HttpOK($response);
-
-        $this->VerifyOK(basename(__FILE__)."@".__LINE__);
-    }
-
-    public function actionMix() {
-
-        $this->setup(__FUNCTION__);
-
-        $keys = ['id1', 'id2'];
-        $expected_arrays = [];
-
-        // prepare
-        //
-        foreach ($keys as $key) {
-
-            $api = '/rdbcache/v1/get/'.$key;
-            $response = $this->createRequest()
-                ->setMethod('get')
-                ->setApi($api)
-                ->send();
-
-            if (!$response->isOk) {
-                $this->failed(basename(__FILE__)."@".__LINE__.": Failed!  " . $response->data['message']);
-                return;
-            }
-
-            $resp_key = $response->data['key'];
-            if ($resp_key != $key) {
-                $this->failed(basename(__FILE__)."@".__LINE__.": incorrect key");
-                return;
-            }
-
-            $expected_arrays[$key] = $response->data['data'];
-            $this->HttpOK($response);
-        }
-
-        $ids = [2, 3];
-        $table = 'tb1';
-
-        // prepare
-        //
-        foreach ($ids as $id) {
-
-            $key = 'my-hash-key-'.$id;
-            array_push($keys, $key);
-
-            $api = '/rdbcache/v1/get/'.$key.'/'.$table.'?id='.$id;
-            $response = $this->createRequest()
-                ->setMethod('get')
-                ->setApi($api)
-                ->send();
-
-            if (!$response->isOk) {
-                $this->failed(basename(__FILE__)."@".__LINE__.": Failed!  " . $response->data['message']);
-                return;
-            }
-
-            $expected_arrays[$key] = $response->data['data'];
-
-            $this->HttpOK($response);
-        }
-
-        //pull
-        $api = '/rdbcache/v1/pull/';
-        $response = $this->createRequest(true)
-            ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
-            ->setMethod('post')
-            ->setApi($api)
-            ->setData($keys)
-            ->send();
-
-        if (!$response->isOk) {
-            $this->failed(basename(__FILE__)."@".__LINE__.": Failed!  " . $response->data['message']);
-            return;
-        }
-
-        $data = $response->data['data'];
-        if ($data != $expected_arrays) {
-            $this->failed(basename(__FILE__)."@".__LINE__.": incorrect data");
-            return;
-        }
-
-        if ($data != $expected_arrays) {
-            $this->failed(basename(__FILE__)."@".__LINE__.": incorrect data");
-            return;
-        }
-
-        $this->HttpOK($response);
-
-        $this->VerifyOK(basename(__FILE__)."@".__LINE__);
-    }
-
-    public function actionMixWithSync() {
-
-        $this->setup(__FUNCTION__);
-
-        $keys = ['id1', 'id2'];
-        $expected_arrays = [];
-
-        // prepare
-        //
-        foreach ($keys as $key) {
-
-            $api = '/rdbcache/v1/get/'.$key.'/sync';
-            $response = $this->createRequest()
-                ->setMethod('get')
-                ->setApi($api)
-                ->send();
-
-            if (!$response->isOk) {
-                $this->failed(basename(__FILE__)."@".__LINE__.": Failed!  " . $response->data['message']);
-                return;
-            }
-
-            $resp_key = $response->data['key'];
-            if ($resp_key != $key) {
-                $this->failed(basename(__FILE__)."@".__LINE__.": incorrect key");
-                return;
-            }
-
-            $expected_arrays[$key] = $response->data['data'];
-            $this->HttpOK($response);
-        }
-
-        $ids = [2, 3];
-        $table = 'tb1';
-
-        // prepare
-        //
-        foreach ($ids as $id) {
-
-            $key = 'my-hash-key-'.$id;
-            array_push($keys, $key);
-
-            $api = '/rdbcache/v1/get/'.$key.'/'.$table.'/sync?id='.$id;
-            $response = $this->createRequest()
-                ->setMethod('get')
-                ->setApi($api)
-                ->send();
-
-            if (!$response->isOk) {
-                $this->failed(basename(__FILE__)."@".__LINE__.": Failed!  " . $response->data['message']);
-                return;
-            }
-
-            $expected_arrays[$key] = $response->data['data'];
-
-            $this->HttpOK($response);
-        }
-
-        //pull
-        $api = '/rdbcache/v1/pull/sync';
-        $response = $this->createRequest(true)
-            ->setFormat(\yii\httpclient\Client::FORMAT_JSON)
-            ->setMethod('post')
-            ->setApi($api)
-            ->setData($keys)
-            ->send();
-
-        if (!$response->isOk) {
-            $this->failed(basename(__FILE__)."@".__LINE__.": Failed!  " . $response->data['message']);
-            return;
-        }
-
-        $data = $response->data['data'];
-        if ($data != $expected_arrays) {
-            $this->failed(basename(__FILE__)."@".__LINE__.": incorrect data");
-            return;
-        }
 
         if ($data != $expected_arrays) {
             $this->failed(basename(__FILE__)."@".__LINE__.": incorrect data");

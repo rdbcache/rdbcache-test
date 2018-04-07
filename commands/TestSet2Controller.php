@@ -285,7 +285,7 @@ class TestSet2Controller extends TestController
 
         // get by key only
         //
-        $api = '/rdbcache/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
@@ -407,7 +407,7 @@ class TestSet2Controller extends TestController
 
         // get by key only
         //
-        $api = '/rdbcache/v1/get/'.$key;
+        $api = '/rdbcache/v1/get/'.$key.'/'.$table;
         $response = $this->createRequest()
             ->setMethod('get')
             ->setApi($api)
