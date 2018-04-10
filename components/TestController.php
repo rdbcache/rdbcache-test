@@ -165,21 +165,21 @@ class TestController extends Controller
             echo "result: null\n";
             return null;
         } else if (is_string($result)) {
-            echo "result: $result\n";
+            echo "result(1): $result\n";
             $data = json_decode($result, true);
             if ($data == null) {
                 return $result;
             }
             return $data;
         } else if (strpos($cmd, 'HGETALL ') === FALSE) {
-            echo "result: ".json_encode($result)."\n";
+            echo "result(2): ".json_encode($result)."\n";
             return $result;
         } else {
-            echo "result: ".json_encode($result)."\n";
+            echo "result(3): ".json_encode($result)."\n";
             $assocResult = [];
             for ($i = 0; $i < count($result); $i += 2) {
                 $key = $result[$i];
-                $value = $result[$i+1];
+                $value = str_replace("\"", '', $result[$i+1]);
                 $assocResult[$key] = $value;
             }
             if (array_key_exists('_DEFAULT_', $assocResult)) {
