@@ -1,7 +1,8 @@
 <?php
 
 $params = require __DIR__ . '/params.php';
-$db = require __DIR__ . '/db.php';
+$datadb = require __DIR__ . '/datadb.php';
+$systemdb = require __DIR__ . '/systemdb.php';
 $redis = require __DIR__ . '/redis.php';
 
 $config = [
@@ -22,7 +23,8 @@ $config = [
                 ],
             ],
         ],
-        'db' => $db,
+        'datadb' => $datadb,
+        'systemdb' => $systemdb,
     ],
     'params' => $params,
     /*

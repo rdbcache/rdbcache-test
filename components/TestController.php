@@ -52,11 +52,24 @@ class TestController extends Controller
 
     protected function db_init() {
 
-        $dbase_conn = Yii::$app->db;
+        $data_conn = Yii::$app->datadb;
         for ($i = 0; $i < 3; $i++) {
             try {
-                $sql = file_get_contents(Yii::getAlias('@app') . '/data/testdb_data.sql');
-                $command = $dbase_conn->createCommand($sql);
+                $sql = file_get_contents(Yii::getAlias('@app') . '/data/datadb_data.sql');
+                $command = $data_conn->createCommand($sql);
+                $result = $command->execute();
+                break;
+            } catch (\yii\db\Exception $e) {
+                // Serialization failure: 1213 Deadlock is expected
+                echo 'Caught exception during setup data, which is expected, sleep 3 seconds and retry';
+                sleep(3);
+            }
+        }
+        $system_conn = Yii::$app->systemdb;
+        for ($i = 0; $i < 3; $i++) {
+            try {
+                $sql = file_get_contents(Yii::getAlias('@app') . '/data/systemdb_data.sql');
+                $command = $system_conn->createCommand($sql);
                 $result = $command->execute();
                 break;
             } catch (\yii\db\Exception $e) {
@@ -69,7 +82,7 @@ class TestController extends Controller
 
     protected function empdb_init($withDept2Data = false, $withEmp2Data = false) {
 
-        $dbase_conn = Yii::$app->db;
+        $dbase_conn = Yii::$app->datadb;
         $sql = file_get_contents(Yii::getAlias('@app') . '/data/emp_data.sql');
         for ($i = 0; $i < 3; $i++) {
             try {
@@ -124,9 +137,9 @@ class TestController extends Controller
 
     protected function getTestStartAtId() {
 
-        $query = new Query;
+        $query = new Query();
         $query->select('max(id) as max_id')->from('rdbcache_client_test');
-        $result = $query->one();
+        $result = $query->one(Yii::$app->systemdb);
         $max_id = $result['max_id'];
         $max_id++;
         return $max_id;
@@ -134,9 +147,9 @@ class TestController extends Controller
 
     protected function getTestStopAtId() {
         
-        $query = new Query;
+        $query = new Query();
         $query->select('max(id) as max_id')->from('rdbcache_client_test');
-        $result = $query->one();
+        $result = $query->one(Yii::$app->systemdb);
         $max_id = $result['max_id'];
         return $max_id;
     }
@@ -533,7 +546,7 @@ class TestController extends Controller
         $query->select('count(*) as failed')
             ->from('rdbcache_client_test')
             ->where("id >= ".$start_id." AND id <= ".$stop_id." AND NOT passed");
-        $result = $query->one();
+        $result = $query->one(Yii::$app->systemdb);
         $failed = intval($result['failed']);
         if ($failed > 0) {
             $this->stdout("Failed: " . $failed . "\n", Console::BOLD, Console::FG_RED);
@@ -543,7 +556,7 @@ class TestController extends Controller
         $query->select('count(*) as verify_failed')
             ->from('rdbcache_client_test')
             ->where("id >= ".$start_id." AND id <= ".$stop_id." AND NOT verify_passed");
-        $result = $query->one();
+        $result = $query->one(Yii::$app->systemdb);
         $verify_failed = intval($result['verify_failed']);
         if ($verify_failed > 0) {
             $this->stdout("Verify Failed: " . $verify_failed . "\n", Console::BOLD, Console::FG_RED);
@@ -554,7 +567,7 @@ class TestController extends Controller
             echo "\nFailed test(s):\n";
             $query->select("*")->from('rdbcache_client_test')
                 ->where("id >= ".$start_id." AND id <= ".$stop_id." AND NOT passed");
-            $result = $query->all();
+            $result = $query->all(Yii::$app->systemdb);
             for ($i = 0; $i < $failed; $i++) {
                 $record = $result[$i];
                 $this->stdout("\n".$record['id'].") route: ".$record['route']."\nurl: ".$record['url'] . "\n", Console::BOLD, Console::FG_RED);
@@ -564,7 +577,7 @@ class TestController extends Controller
             echo "\nVerify failed test(s):\n";
             $query->select("*")->from('rdbcache_client_test')
                 ->where("id >= ".$start_id." AND id <= ".$stop_id." AND NOT verify_passed");
-            $result = $query->all();
+            $result = $query->all(Yii::$app->systemdb);
             for ($i = 0; $i < $verify_failed; $i++) {
                 $record = $result[$i];
                 $this->stdout("\n".$record['id'].") route: ".$record['route']."\nurl: ".$record['url'] . "\n", Console::BOLD, Console::FG_RED);

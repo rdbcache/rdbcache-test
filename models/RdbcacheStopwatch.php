@@ -28,6 +28,11 @@ class RdbcacheStopwatch extends \yii\db\ActiveRecord
         return 'rdbcache_stopwatch';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->systemdb;
+    }
+
     /**
      * @inheritdoc
      */

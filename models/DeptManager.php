@@ -25,6 +25,11 @@ class DeptManager extends \yii\db\ActiveRecord
         return 'dept_manager';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->datadb;
+    }
+
     /**
      * @inheritdoc
      */

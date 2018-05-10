@@ -21,6 +21,11 @@ class RdbcacheKvPair extends \yii\db\ActiveRecord
         return 'rdbcache_kv_pair';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->systemdb;
+    }
+
     /**
      * @inheritdoc
      */

@@ -25,6 +25,11 @@ class DeptEmp extends \yii\db\ActiveRecord
         return 'dept_emp';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->datadb;
+    }
+
     /**
      * @inheritdoc
      */

@@ -24,6 +24,11 @@ class Titles extends \yii\db\ActiveRecord
         return 'titles';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->datadb;
+    }
+
     /**
      * @inheritdoc
      */

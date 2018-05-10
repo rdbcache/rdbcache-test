@@ -31,6 +31,11 @@ class Employees extends \yii\db\ActiveRecord
         return 'employees';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->datadb;
+    }
+
     /**
      * @inheritdoc
      */

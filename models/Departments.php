@@ -25,6 +25,11 @@ class Departments extends \yii\db\ActiveRecord
         return 'departments';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->datadb;
+    }
+
     /**
      * @inheritdoc
      */

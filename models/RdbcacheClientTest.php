@@ -28,6 +28,11 @@ class RdbcacheClientTest extends \yii\db\ActiveRecord
         return 'rdbcache_client_test';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->systemdb;
+    }
+
     /**
      * @inheritdoc
      */

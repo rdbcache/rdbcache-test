@@ -15,12 +15,12 @@ class TestStartController extends TestController
     public function actionIndex()
     {
         $tables_needed = array(
-            "rdbcache_kv_pair", "rdbcache_monitor", "rdbcache_client_test", "rdbcache_stopwatch", 
+            //"rdbcache_kv_pair", "rdbcache_monitor", "rdbcache_client_test", "rdbcache_stopwatch", 
             "departments", "employees", "dept_emp", "dept_manager", "titles", "salaries", 
             "departments2", "employees2", "dept_emp2", "dept_manager2", "titles", "salaries2", 
             "tb1", "tb2", "user_table");
         try {
-            $conn = Yii::$app->db;
+            $conn = Yii::$app->datadb;
             $tables = $conn->schema->getTableNames();
             $missing_tables = "";
             foreach ($tables_needed as $table_needed) {

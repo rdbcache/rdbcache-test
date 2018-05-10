@@ -30,6 +30,11 @@ class RdbcacheMonitor extends \yii\db\ActiveRecord
         return 'rdbcache_monitor';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->systemdb;
+    }
+
     /**
      * @inheritdoc
      */

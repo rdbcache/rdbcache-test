@@ -24,6 +24,11 @@ class Salaries extends \yii\db\ActiveRecord
         return 'salaries';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->datadb;
+    }
+
     /**
      * @inheritdoc
      */

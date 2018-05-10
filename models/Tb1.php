@@ -21,6 +21,11 @@ class Tb1 extends \yii\db\ActiveRecord
         return 'tb1';
     }
 
+    public static function getDb()
+    {
+        return Yii::$app->datadb;
+    }
+
     /**
      * @inheritdoc
      */
